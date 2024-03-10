@@ -7,6 +7,7 @@ dotenv.config({
 })
 
 // "immediately invoked function expression" (IIFE)
+//check info about IIFE in ./db/config.js
 ;(async() => {
   try{
       await connectDB();
