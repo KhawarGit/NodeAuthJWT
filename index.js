@@ -1,6 +1,5 @@
 // require('dotenv').config()
 const dotenv = require('dotenv')
-const mongoose = require('mongoose')
 const app = require('./app.js')
 const { connectDB } = require('./db/config.js');
 dotenv.config({
@@ -13,7 +12,7 @@ dotenv.config({
       await connectDB();
       app.listen(process.env.PORT || 8000, () => {
 
-        console.log(`Server is running on port : ${process.env.PORT}`)
+        console.log(`Server is running on port : ${process.env.PORT} or 8000`)
     })
   } catch(error){
     console.log("MONGO db Connection Failed in index.js !!! ", err)
