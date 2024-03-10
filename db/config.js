@@ -15,7 +15,7 @@ const { DB_NAME } = require('./../constants.js');
         console.log(`\n Mongo DB Connected !! DB HOST: ${connectionInstance.connection.host}`);
 
     }catch (error){
-        console.error("MONGODB Connection Error: ", error)
+        console.error("MONGODB Connection FAILED: ", error);
         process.exit(1)
     }
 })()
