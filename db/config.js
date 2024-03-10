@@ -8,14 +8,38 @@ const { DB_NAME } = require('./../constants.js');
 
 //An IIFE is a way to create a function and execute it immediately after its creation. It is commonly used to create a new scope for variables to avoid polluting the global scope and to encapsulate logic.
 
-;(async() => {
-    try{
-        const connectionInstance = await mongoose.connect(`${process.env.MONGODB_URI}/${DB_NAME}`);
+// ;(async() => {
+//     return new Promise(async(resolve, reject) => {
+//         try{
+//             const connectionInstance = await mongoose.connect(`${process.env.MONGODB_URI}/${DB_NAME}`);
+    
+//             console.log(`\n Mongo DB Connected !! DB HOST: ${connectionInstance.connection.host}`);
+//             resolve();
+    
+//         }catch (error){
+//             console.error("MONGODB Connection FAILED: ", error);
+//             reject();
+//             process.exit(1);
+//         }
+//     })
+// })()
 
-        console.log(`\n Mongo DB Connected !! DB HOST: ${connectionInstance.connection.host}`);
+connectDB = async() => {
+    return new Promise(async(resolve, reject) => {
+        try{
+            const connectionInstance = await mongoose.connect(`${process.env.MONGODB_URI}/${DB_NAME}`);
+    
+            console.log(`\n Mongo DB Connected !! DB HOST: ${connectionInstance.connection.host}`);
+            resolve();
+    
+        }catch (error){
+            console.error("MONGODB Connection FAILED: ", error);
+            reject();
+            process.exit(1);
+        }
+    })
+}
 
-    }catch (error){
-        console.error("MONGODB Connection FAILED: ", error);
-        process.exit(1)
-    }
-})()
+module.exports = {
+    connectDB
+}
