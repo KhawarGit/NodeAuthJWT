@@ -1,3 +1,4 @@
+// async Handler in a promise way.
 const asyncHandler = (requestHandler) => {
     (req, res, next) => {
         Promise.resolve(requestHandler(req, res, next)).
