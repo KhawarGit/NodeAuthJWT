@@ -101,4 +101,16 @@ userSchema.methods.generateAccessToken = function () {
     );
 };
 
+userSchema.methods.generateRefreshToken = function() {
+    return JWT.sign(
+        {
+            _id: this.id
+        },
+        process.env.REFRESH_TOKEN_SECRET,
+        {
+            expiresIn: process.env.REFRESH_TOKEN_EXPIRY
+        }
+    );
+};
+
 export const User = mongoose.model("User", userSchema)
