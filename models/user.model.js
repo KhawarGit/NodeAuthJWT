@@ -101,10 +101,10 @@ userSchema.methods.generateAccessToken = function () {
     );
 };
 
-userSchema.methods.generateRefreshToken = function() {
+userSchema.methods.generateRefreshToken = function () {
     return JWT.sign(
         {
-            _id: this.id
+            _id: this._id
         },
         process.env.REFRESH_TOKEN_SECRET,
         {
