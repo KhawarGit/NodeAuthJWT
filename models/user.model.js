@@ -1,5 +1,6 @@
 import mongoose, {Schema} from "mongoose";
 const bcrypt = require('bcrypt');
+const JWT = require('jsonwebtoken');
 
 const userSchema = new Schema(
     {
@@ -85,6 +86,19 @@ userSchema.methods.passwordValidator = async function(enteredPassword){
     }
 };
 
-
+userSchema.methods.generateAccessToken = function {
+    return JWT.sign(
+        {
+            _id: this._id,
+            email: this.email,
+            username: this.username,
+            fullName: this.fullName
+        },
+        process.env.ACCESS_TOKEN_SECRET,
+        {
+            expiresIn: process.env.ACCESS_TOKEN_EXPIRY
+        }
+    );
+};
 
 export const User = mongoose.model("User", userSchema)
