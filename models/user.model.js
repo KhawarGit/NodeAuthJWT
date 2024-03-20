@@ -83,6 +83,8 @@ userSchema.methods.passwordValidator = async function(enteredPassword){
     }catch(err){
         throw err;
     }
-}
+};
+
+
 
 export const User = mongoose.model("User", userSchema)
