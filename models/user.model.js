@@ -86,7 +86,7 @@ userSchema.methods.passwordValidator = async function(enteredPassword){
     }
 };
 
-userSchema.methods.generateAccessToken = function {
+userSchema.methods.generateAccessToken = function () {
     return JWT.sign(
         {
             _id: this._id,
