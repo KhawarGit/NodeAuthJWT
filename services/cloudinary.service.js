@@ -1,8 +1,7 @@
 import { v2 as Cloudinary } from "cloudinary";
-import { log } from "console";
 const fs = require("fs");
          
-cloudinary.config(
+Cloudinary.config(
   {
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME, 
     api_key: process.env.CLOUDINARY_API_KEY, 
@@ -31,6 +30,13 @@ const uploadOnCloudinary = async (localFilePath) => {
     return response;
   
   } catch (error) {
-    
+    fs.unlinkSync(localFilePath); // removes the locally saved file present at local file path for upload on cloudinary, as teh operation failed.
+
+    return null;
+
   }
 };
+
+export {
+  uploadOnCloudinary
+}
