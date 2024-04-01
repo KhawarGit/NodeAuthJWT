@@ -9,7 +9,7 @@ const storage = multer.diskStorage({
       // 2) the folder path to store that file.
     },
     filename: function (req, file, cb) {
-      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
+      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9) // generating unique key/string to be concatenated with the original filename, to generate a unique name for each file uploaded on server , so that no file will be over-written with the upcoming file.
       console.log(this.filename);
       cb(null, file.originalname + '-' + uniqueSuffix)
     }
