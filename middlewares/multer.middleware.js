@@ -18,5 +18,5 @@ const storage = multer.diskStorage({
 // const upload = multer({ storage: storage })
 
 export const upload = multer ({
-    storage,
+    storage, // in ES6 we can export function like this , if the function signature and export name are both same.
 })
