@@ -1,4 +1,5 @@
 const multer = require("multer");
+// multer middleware for file upload on server, then this file will be uploaded on cloudinary by using cloudinary.service.js
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
