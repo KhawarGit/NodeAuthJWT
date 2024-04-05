@@ -15,7 +15,7 @@ dotenv.config({
 //check info about IIFE in ./db/config.js
 ;(async() => {
   try{
-      await connectDB();
+      await connectDB(); // first we wait for our server to connect with mongoDB database server.
       app.listen(PORT, () => {
         console.log(`Server is running on port : ${PORT}`)
     })
