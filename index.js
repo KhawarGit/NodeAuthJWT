@@ -13,6 +13,7 @@ dotenv.config({
 
 // "immediately invoked function expression" (IIFE)
 //check info about IIFE in ./db/config.js
+//; is used in start of IIFE to command the translator that last command is ended , as now , usually people dont place semi-colon after commands in Javascript.
 ;(async() => {
   try{
       await connectDB(); // first we wait for our server to connect with mongoDB database server.
