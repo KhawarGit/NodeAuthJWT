@@ -1,6 +1,7 @@
-import { v2 as Cloudinary } from "cloudinary";
+import { v2 as Cloudinary } from "cloudinary"; // used ALIAS for v2
 const fs = require("fs");
-         
+   
+//configuring cloudinary service.
 Cloudinary.config(
   {
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME, 
