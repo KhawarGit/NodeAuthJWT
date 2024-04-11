@@ -1,6 +1,7 @@
+// configuring the server with third party middlewares
 const express = require('express');
 const cors = require('cors'); //CORS: Cross-origin Resource Sharing
-const cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser'); /// middleware for parsing cookies.
 
 const app = express();
 
